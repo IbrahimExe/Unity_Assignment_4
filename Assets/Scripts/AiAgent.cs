@@ -34,9 +34,9 @@ public class AiAgent : MonoBehaviour
             {
                 currentWaypoint = (currentWaypoint + 1) % waypoints.Count;
                 navMeshAgent.SetDestination(waypoints[currentWaypoint].position);
-
             }
         }
+
         else if (aiState == AIState.Chase)
         {
             navMeshAgent.SetDestination(chaseTarget.position);
@@ -49,15 +49,32 @@ public class AiAgent : MonoBehaviour
             }
         }
 
+        else if (aiState == AIState.Investigate)
+        {
+            navMeshAgent.SetDestination(transform.position);
+        }
+
         // When chaseTarget is reached, Move to next one.
         
     }
 
-    public void HostileSpotted(Transform hostileTarget)
+    public void PlayerSpotted(Transform playerTarget)
     {
-        chaseTarget = hostileTarget;
+        chaseTarget = playerTarget;
         navMeshAgent.SetDestination(chaseTarget.position);
+        aiState = AIState.Chase;
+    }
 
+    public void StartInvestigate()
+    {
+        aiState = AIState.Investigate;
+    }
+    public void EndInvestigate()
+    {
+        if (aiState == AIState.Investigate)
+        {
+            aiState = AIState.Patrol;
+        }
     }
 
 }
@@ -65,5 +82,6 @@ public class AiAgent : MonoBehaviour
 public enum AIState
 {
     Patrol,
-    Chase
+    Chase,
+    Investigate
 }
