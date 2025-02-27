@@ -3784,7 +3784,7 @@ GameObject:
   - component: {fileID: 1504916499}
   - component: {fileID: 1504916498}
   - component: {fileID: 1504916497}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SightCone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3820,6 +3820,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 1900736849}
   eyes: {fileID: 1279360744}
+  investigationTime: 1.25
+  investigationTimer: 0
 --- !u!64 &1504916498
 MeshCollider:
   m_ObjectHideFlags: 0
