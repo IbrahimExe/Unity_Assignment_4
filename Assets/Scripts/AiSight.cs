@@ -9,7 +9,7 @@ public class AiSight : MonoBehaviour
 
     // Investigation
     public float investigationTime = 1.25f;
-    public float investigationTimer = 0.0f;'
+    public float investigationTimer = 0.0f;
     private bool investigate = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
