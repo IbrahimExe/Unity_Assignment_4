@@ -76,7 +76,6 @@ public class AiAgent : MonoBehaviour
             aiState = AIState.Patrol;
         }
     }
-
 }
 
 public enum AIState

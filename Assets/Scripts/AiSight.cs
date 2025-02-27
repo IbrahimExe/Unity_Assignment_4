@@ -25,6 +25,16 @@ public class AiSight : MonoBehaviour
         {
             investigationTimer -= Time.deltaTime;
         }
+        else
+        {
+            agent.EndInvestigate();
+            investigationTimer = investigationTime;
+        }
+    }
+
+    public void FixedUpdate()
+    {
+        investigate = false;
     }
 
     public void OnTriggerStay(Collider other)
@@ -47,6 +57,10 @@ public class AiSight : MonoBehaviour
                     {
                         Debug.DrawLine(eyes.position, other.transform.position, Color.red, 1f);
                         agent.PlayerSpotted(other.transform);
+                    }
+                    else
+                    {
+                        agent.StartInvestigate();
                     }
                 }
             }
