@@ -8,7 +8,7 @@ public class AiFollow : MonoBehaviour
 
     void Start()
     {
-        
+        navMeshAgent.SetDestination(target.position);
     }
 
     void Update()
