@@ -6,14 +6,14 @@ public class GameManager : MonoBehaviour
     //public UIManager uiManager; 
 
 
-    public GameObject gameOverScreen;  // Assign in Inspector
-    public GameObject gameWinScreen;   // Assign in Inspector
+    public GameObject gameOverScreen; 
+    public GameObject gameWinScreen;   
 
     private bool hasKey = false;
 
     void Start()
     {
-        Time.timeScale = 1f; // Ensure game starts normally
+        Time.timeScale = 1f; 
     }
 
     void OnTriggerEnter(Collider collision)
@@ -34,14 +34,15 @@ public class GameManager : MonoBehaviour
 
     void TriggerGameOver()
     {
+        Cursor.lockState = CursorLockMode.None;
         gameOverScreen.SetActive(true);
-        Time.timeScale = 0f; // Stop the game
+        Time.timeScale = 0f; 
     }
 
     void CollectKey(GameObject keyObject)
     {
         hasKey = true;
-        Destroy(keyObject); // Remove key after collecting
+        Destroy(keyObject); 
     }
 
     void CheckWinCondition()
@@ -49,14 +50,15 @@ public class GameManager : MonoBehaviour
         if (hasKey)
         {
             gameWinScreen.SetActive(true);
-            Time.timeScale = 0f; // Stop the game
+            Time.timeScale = 0f;
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 
     public void PlayAgain()
     {
         Debug.Log("Restart Button Clicked!");
-        Time.timeScale = 1f; // Resume time before reloading
+        Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
 }

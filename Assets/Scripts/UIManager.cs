@@ -11,7 +11,7 @@ public class KeyUIManager : MonoBehaviour
 
     private void Start()
     {
-        UpdateKeyUI(false); // Start with a semi-transparent key
+        UpdateKeyUI(false); 
     }
 
     private void OnTriggerEnter(Collider other)

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
-    public GameManager gameManager; // Manually assign in Inspector
+    public GameManager gameManager;
 
     void OnTriggerEnter2D(Collider2D other)
     {
